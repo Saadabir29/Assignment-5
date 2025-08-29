@@ -8,4 +8,64 @@
     <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
+    <header class="navbar">
+      <div class="navbar-left">
+        <img src="assets/logo.png" alt="Emergency Service Logo" class="logo" />
+        <span class="website-name">Emergency<br class="line-break">Service</span>
+      </div>
+      <div class="navbar-right">
+        <div class="counter-item">
+          <span id="heart-count">0</span>
+          <i data-feather="heart" class="icon"></i>
+        </div>
+        <div class="counter-item">
+          <span id="coin-count">100</span>
+          <img src="assets/coin.png" alt="Coin" class="icon" />
+        </div>
+        <div class="counter-item copy-pill">
+          <span id="copy-count">0</span>
+          <span class="pill-text">Copy</span>
+        </div>
+      </div>
+    </header>
 
+    <section class="hero-section">
+      <div class="hero-content">
+        <img
+          src="assets/logo-dark.png"
+          alt="Bangladesh Govt Logo"
+          class="govt-logo"
+        />
+        <h1 class="hero-title">Emergency Service Directory</h1>
+        <p class="hero-slogan">
+          Government Emergency Services at Your Fingertip – A Project by
+          Government of the People’s Republic of Bangladesh
+        </p>
+      </div>
+    </section>
+
+    <main class="main-section">
+      <section class="card-section">
+        <div class="card-grid" id="card-container"></div>
+      </section>
+
+      <aside class="side-sections">
+        <section class="history-section">
+          <div class="history-header">
+            <h2 class="history-title">
+              <i data-feather="phone-call" class="icon"></i>
+              Call History
+            </h2>
+            <button class="clear-history-btn" id="clear-history-btn">
+              Clear
+            </button>
+          </div>
+          <div class="history-list" id="history-list">
+            <p class="no-history">No call history yet.</p>
+          </div>
+        </section>
+      </aside>
+    </main>
+
+  </body>
+</html>
