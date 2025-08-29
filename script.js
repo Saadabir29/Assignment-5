@@ -204,19 +204,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const noHistoryText = historyList.querySelector(".no-history");
     if (noHistoryText) {
-      noHistoryText.remove();
+        noHistoryText.remove();
     }
 
     historyList.prepend(historyItem);
-  };
+    };
 
-  clearHistoryBtn.addEventListener("click", () => {
+    clearHistoryBtn.addEventListener("click", () => {
     historyList.innerHTML = '<p class="no-history">No call history yet.</p>';
-  });
+    });
 
-  renderCards();
-  updateCoinCount();
-  updateHeartCount();
-  updateCopyCount();
+    renderCards();
+    updateCoinCount();
+    updateHeartCount();
+    updateCopyCount();
 });
 /* I think I learned a lot about DOM from this assignment and getting the hang of the JS */
