@@ -235,3 +235,55 @@ body {
   margin top: 10px;
 }
 
+/* Buttons */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto;
+}
+.card-button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.12s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.copy-btn {
+  background-color: var(--button-bg-copy);
+  color: #666;
+  border: 1px solid #666;
+}
+.call-btn {
+  background-color: var(--button-bg-call);
+  color: var(--text-light);
+}
+.feather.feather-copy {
+  width: 14px;
+  height: 14px;
+}
+.feather.feather-phone-call{
+  width: 14px;
+  height: 14px;
+}
+
+.copy-btn:hover {
+  background-color: #fffcfc;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.call-btn:hover {
+  background-color: #2e914a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
