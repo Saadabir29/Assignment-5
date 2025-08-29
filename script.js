@@ -73,4 +73,151 @@ document.addEventListener("DOMContentLoaded", () => {
   const historyList = document.getElementById("history-list");
   const clearHistoryBtn = document.getElementById("clear-history-btn");
 
-  
+  let coins = 100;
+  let hearts = 0;
+  let copies = 0;
+
+
+  const updateCoinCount = () => {
+    coinCountEl.textContent = coins;
+  };
+
+  const updateHeartCount = () => {
+    heartCountEl.textContent = hearts;
+  };
+
+  const updateCopyCount = () => {
+    copyCountEl.textContent = copies;
+  };
+
+
+  const renderCards = () => {
+    cardContainer.innerHTML = "";
+    services.forEach((service) => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      const cardHtml = `
+                <div class="card-header">
+                    <img src="${service.iconUrl}" alt="${service.nameEn} icon" class="card-icon">
+                    <button class="heart-icon-btn" data-service-name="${service.nameEn}">
+                        <i data-feather="heart"></i>
+                    </button>
+                </div>
+                <div class="card-details">
+                    <h3 class="card-name-bd">${service.name}</h3>
+                    <p class="card-name-en">${service.nameEn}</p>
+                    <p class="card-number">${service.number}</p>
+                    <span class="category-badge">${service.category}</span>
+                </div>
+                <div class="card-footer">
+                    <button class="card-button copy-btn" data-number="${service.number}" data-service-name="${service.nameEn}">
+                        <i data-feather="copy"></i> Copy
+                    </button>
+                    <button class="card-button call-btn" data-number="${service.number}" data-service-name="${service.nameEn}">
+                        <i data-feather="phone-call"></i> Call
+                    </button>
+                </div>
+            `;
+      card.innerHTML = cardHtml;
+      cardContainer.appendChild(card);
+    });
+    feather.replace();
+  };
+
+  //Heart button clicks
+  cardContainer.addEventListener("click", (event) => {
+    const heartBtn = event.target.closest(".heart-icon-btn");
+    if (heartBtn) {
+      heartBtn.classList.toggle("liked");
+      if (heartBtn.classList.contains("liked")) {
+        hearts++;
+      } else {
+        hearts--;
+      }
+      updateHeartCount();
+      feather.replace();
+    }
+  });
+
+  //Call button clicks
+  cardContainer.addEventListener("click", (event) => {
+    const callBtn = event.target.closest(".call-btn");
+    if (callBtn) {
+      const serviceName = callBtn.dataset.serviceName;
+      const number = callBtn.dataset.number;
+
+      if (coins < 20) {
+        alert("❌Sorry, you don't have enough coins to make a call.");
+        return;
+      }
+
+      coins -= 20;
+      updateCoinCount();
+
+      //Log call for user
+      alert(`📞Calling ${serviceName} at ${number}`);
+
+      //Add to call history
+      addHistoryItem(serviceName, number);
+    }
+  });
+
+  //Copy button clicks
+  cardContainer.addEventListener("click", (event) => {
+    const copyBtn = event.target.closest(".copy-btn");
+    if (copyBtn) {
+      const number = copyBtn.dataset.number;
+      const serviceName = copyBtn.dataset.serviceName;
+
+      navigator.clipboard
+        .writeText(number)
+        .then(() => {
+          alert(
+            `The number for ${serviceName} (${number}) has been copied to your clipboard!`
+          );
+          copies++;
+          updateCopyCount();
+        })
+        .catch((err) => {
+          console.error("Failed to copy text: ", err);
+          console.log("Failed to copy the number. Please try again.");
+        });
+    }
+  });
+
+  const addHistoryItem = (name, number) => {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+
+    const historyItem = document.createElement("div");
+    historyItem.classList.add("history-item");
+    historyItem.innerHTML = `
+            <span class="history-item-name">${name}</span>
+            <span class="history-item-number">${number}</span>
+            <span class="history-item-time">${timeString}</span>
+        `;
+
+    const noHistoryText = historyList.querySelector(".no-history");
+    if (noHistoryText) {
+      noHistoryText.remove();
+    }
+
+    historyList.prepend(historyItem);
+  };
+
+  clearHistoryBtn.addEventListener("click", () => {
+    historyList.innerHTML = '<p class="no-history">No call history yet.</p>';
+  });
+
+  renderCards();
+  updateCoinCount();
+  updateHeartCount();
+  updateCopyCount();
+});
+
+/* I think I learned a lot about DOM from this assignment and getting the hang of the JS */
