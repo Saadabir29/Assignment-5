@@ -219,5 +219,4 @@ document.addEventListener("DOMContentLoaded", () => {
   updateHeartCount();
   updateCopyCount();
 });
-
 /* I think I learned a lot about DOM from this assignment and getting the hang of the JS */
