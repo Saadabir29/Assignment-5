@@ -446,4 +446,65 @@ let coins = 100;
     feather.replace();
   };
 
+   //Heart button clicks
+  cardContainer.addEventListener("click", (event) => {
+    const heartBtn = event.target.closest(".heart-icon-btn");
+    if (heartBtn) {
+      heartBtn.classList.toggle("liked");
+      if (heartBtn.classList.contains("liked")) {
+        hearts++;
+      } else {
+        hearts--;
+      }
+      updateHeartCount();
+      feather.replace();
+    }
+  });
+
+  //Call button clicks
+  cardContainer.addEventListener("click", (event) => {
+    const callBtn = event.target.closest(".call-btn");
+    if (callBtn) {
+      const serviceName = callBtn.dataset.serviceName;
+      const number = callBtn.dataset.number;
+
+      if (coins < 20) {
+        alert("❌Sorry, you don't have enough coins to make a call.");
+        return;
+      }
+
+      coins -= 20;
+      updateCoinCount();
+
+      //Log call for user
+      alert(`📞Calling ${serviceName} at ${number}`);
+
+      //Add to call history
+      addHistoryItem(serviceName, number);
+    }
+  });
+
+  //Copy button clicks
+  cardContainer.addEventListener("click", (event) => {
+    const copyBtn = event.target.closest(".copy-btn");
+    if (copyBtn) {
+      const number = copyBtn.dataset.number;
+      const serviceName = copyBtn.dataset.serviceName;
+
+      navigator.clipboard
+        .writeText(number)
+        .then(() => {
+          alert(
+            `The number for ${serviceName} (${number}) has been copied to your clipboard!`
+          );
+          copies++;
+          updateCopyCount();
+        })
+        .catch((err) => {
+          console.error("Failed to copy text: ", err);
+          console.log("Failed to copy the number. Please try again.");
+        });
+    }
+  });
+
   
