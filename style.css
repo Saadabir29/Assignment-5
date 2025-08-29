@@ -100,3 +100,35 @@ body {
   fill: #ec0d0d;
 }
 
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(to right, #038c6e);
+  color: var(--text-light);
+  text-align: center;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.govt-logo {
+  width: 60px;
+  height: auto;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.hero-slogan {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
