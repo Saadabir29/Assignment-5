@@ -64,3 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
       iconUrl: "./assets/Bangladesh-Railway.png",
     },
   ];
+
+  // DOM Elements
+  const cardContainer = document.getElementById("card-container");
+  const coinCountEl = document.getElementById("coin-count");
+  const heartCountEl = document.getElementById("heart-count");
+  const copyCountEl = document.getElementById("copy-count");
+  const historyList = document.getElementById("history-list");
+  const clearHistoryBtn = document.getElementById("clear-history-btn");
+
+  
