@@ -1,1 +1,396 @@
+:root {
+  --primary-color: #34a853;
+  --secondary-color: #ffffff;
+  --background-light: #f5f8f6;
+  --background-dark: #036f3d;
+  --text-dark: #333333;
+  --text-light: #ffffff;
+  --card-bg: #ffffff;
+  --hero-bg: #1c2e4a;
+  --button-bg-copy: #ffffff;
+  --button-bg-call: #00d371;
+  --icon-size: 24px;
+  --spacing-sm: 10px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+}
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--card-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+.website-name {
+  font-size: 1.0rem;
+  color: #036f3d;
+  font-weight: 800;
+}
+.line-break {
+  gap: 1px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.counter-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  background-color: #e5fff3;
+  padding: 6px 15px;
+  border-radius: 20px;
+}
+
+.copy-pill {
+  background-color: #00d371;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+.copy-pill .pill-text {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.6rem;
+}
+#copy-count {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.6rem;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.feather.feather-heart.icon {
+  color: #ec0d0d;
+  fill: #ec0d0d;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(to right, #038c6e);
+  color: var(--text-light);
+  text-align: center;
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.govt-logo {
+  width: 60px;
+  height: auto;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 5px;
+}
+
+.hero-slogan {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+/* Main Section Layout */
+.main-section {
+  display: flex;
+  gap: var(--spacing-lg);
+  padding: 30px 30px 60px 30px;
+  background-color: #d1ecda;
+  min-height: fit-content;
+}
+
+.card-section {
+  flex: 3;
+}
+
+.side-sections {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+/* Card */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 10px;
+}
+.card-header {
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+.card-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #edd3d1;
+  border-radius: 6px;
+  border: 5px solid #edd3d1;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.card .heart-icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  line-height: 0;
+  position: absolute;
+  top: -5px;
+  right: 5px;
+}
+
+/*This feature looks cool but I couldn't fill the heart */
+.card .heart-icon-btn.liked  {
+  color: #ca0000;
+  fill: #ca0000;
+}
+
+.card-details {
+  flex-grow: 1;
+  text-align: left;
+  align-items: flex-start;
+}
+.card-name-bd {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+.card-name-en {
+  font-size: 0.7rem;
+  color: #666;
+}
+.card-number {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+.category-badge {
+  display: inline-block;
+  background-color: var(--background-light);
+  color: #666;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  margin top: 10px;
+}
+
+/* Buttons */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  margin-top: auto;
+}
+.card-button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.12s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.copy-btn {
+  background-color: var(--button-bg-copy);
+  color: #666;
+  border: 1px solid #666;
+}
+.call-btn {
+  background-color: var(--button-bg-call);
+  color: var(--text-light);
+}
+.feather.feather-copy {
+  width: 14px;
+  height: 14px;
+}
+.feather.feather-phone-call{
+  width: 14px;
+  height: 14px;
+}
+
+.copy-btn:hover {
+  background-color: #fffcfc;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.call-btn:hover {
+  background-color: #2e914a;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* History Section */
+.history-section {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  padding: var(--spacing-md);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.history-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+}
+.history-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.clear-history-btn {
+  background-color: #00d371;
+  color: #ffffff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+.clear-history-btn:hover {
+  background-color: #059b34;
+}
+.history-list {
+  flex: 1;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+.history-item {
+  background-color: var(--background-light);
+  padding: 10px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+}
+.history-item-name {
+  font-weight: 600;
+}
+.history-item-number {
+  font-size: 0.9rem;
+  color: #666;
+}
+.history-item-time {
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 5px;
+}
+.no-history {
+  text-align: center;
+  color: #999;
+  padding: 20px 0;
+  font-style: italic;
+}
+
+
+@media (max-width: 992px) {
+  .main-section {
+    flex-direction: column;
+  }
+  .side-sections {
+    flex-direction: column;
+  }
+  .history-section {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-md);
+  }
+  .navbar-right {
+    margin-top: var(--spacing-md);
+    width: 100%;
+    justify-content: space-between;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-slogan {
+    font-size: 0.9rem;
+  }
+  .main-section {
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
