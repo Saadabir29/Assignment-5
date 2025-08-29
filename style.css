@@ -1,0 +1,16 @@
+:root {
+  --primary-color: #34a853;
+  --secondary-color: #ffffff;
+  --background-light: #f5f8f6;
+  --background-dark: #036f3d;
+  --text-dark: #333333;
+  --text-light: #ffffff;
+  --card-bg: #ffffff;
+  --hero-bg: #1c2e4a;
+  --button-bg-copy: #ffffff;
+  --button-bg-call: #00d371;
+  --icon-size: 24px;
+  --spacing-sm: 10px;
+  --spacing-md: 16px;
+  --spacing-lg: 20px;
+}
