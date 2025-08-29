@@ -394,4 +394,56 @@ body {
   }
 }
 
-/* I think I learned a lot about DOM from this assignment and getting the hang of the JS */
+let coins = 100;
+  let hearts = 0;
+  let copies = 0;
+
+
+  const updateCoinCount = () => {
+    coinCountEl.textContent = coins;
+  };
+
+  const updateHeartCount = () => {
+    heartCountEl.textContent = hearts;
+  };
+
+  const updateCopyCount = () => {
+    copyCountEl.textContent = copies;
+  };
+
+
+  const renderCards = () => {
+    cardContainer.innerHTML = "";
+    services.forEach((service) => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+
+      const cardHtml = `
+                <div class="card-header">
+                    <img src="${service.iconUrl}" alt="${service.nameEn} icon" class="card-icon">
+                    <button class="heart-icon-btn" data-service-name="${service.nameEn}">
+                        <i data-feather="heart"></i>
+                    </button>
+                </div>
+                <div class="card-details">
+                    <h3 class="card-name-bd">${service.name}</h3>
+                    <p class="card-name-en">${service.nameEn}</p>
+                    <p class="card-number">${service.number}</p>
+                    <span class="category-badge">${service.category}</span>
+                </div>
+                <div class="card-footer">
+                    <button class="card-button copy-btn" data-number="${service.number}" data-service-name="${service.nameEn}">
+                        <i data-feather="copy"></i> Copy
+                    </button>
+                    <button class="card-button call-btn" data-number="${service.number}" data-service-name="${service.nameEn}">
+                        <i data-feather="phone-call"></i> Call
+                    </button>
+                </div>
+            `;
+      card.innerHTML = cardHtml;
+      cardContainer.appendChild(card);
+    });
+    feather.replace();
+  };
+
+  
