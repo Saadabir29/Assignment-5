@@ -63,3 +63,40 @@ body {
   gap: 15px;
 }
 
+.counter-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.6rem;
+  font-weight: 600;
+  background-color: #e5fff3;
+  padding: 6px 15px;
+  border-radius: 20px;
+}
+
+.copy-pill {
+  background-color: #00d371;
+  padding: 8px 15px;
+  border-radius: 20px;
+}
+.copy-pill .pill-text {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.6rem;
+}
+#copy-count {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.6rem;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.feather.feather-heart.icon {
+  color: #ec0d0d;
+  fill: #ec0d0d;
+}
+
