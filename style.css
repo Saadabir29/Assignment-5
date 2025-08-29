@@ -507,4 +507,31 @@ let coins = 100;
     }
   });
 
-  
+    const addHistoryItem = (name, number) => {
+    const now = new Date();
+    const timeString = now.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: true,
+    });
+
+    const historyItem = document.createElement("div");
+    historyItem.classList.add("history-item");
+    historyItem.innerHTML = `
+            <span class="history-item-name">${name}</span>
+            <span class="history-item-number">${number}</span>
+            <span class="history-item-time">${timeString}</span>
+        `;
+
+    const noHistoryText = historyList.querySelector(".no-history");
+    if (noHistoryText) {
+      noHistoryText.remove();
+    }
+
+    historyList.prepend(historyItem);
+  };
+
+  clearHistoryBtn.addEventListener("click", () => {
+    historyList.innerHTML = '<p class="no-history">No call history yet.</p>';
+  });
+
