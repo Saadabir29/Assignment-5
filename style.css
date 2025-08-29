@@ -356,3 +356,41 @@ body {
   font-style: italic;
 }
 
+@media (max-width: 992px) {
+  .main-section {
+    flex-direction: column;
+  }
+  .side-sections {
+    flex-direction: column;
+  }
+  .history-section {
+    height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--spacing-md);
+  }
+  .navbar-right {
+    margin-top: var(--spacing-md);
+    width: 100%;
+    justify-content: space-between;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .hero-slogan {
+    font-size: 0.9rem;
+  }
+  .main-section {
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
